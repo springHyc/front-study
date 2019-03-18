@@ -10,16 +10,17 @@ Vue 生命周期:
 ![Vue-lifecycle](https://upload-images.jianshu.io/upload_images/2041009-37526705b33a353d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Angular 生命周期:
-| Hook | Purpose and Timing |
----| ---
-| `ngOnChanges()` | Angular（重新）设置数据绑定输入属性时的响应。该方法接收`[SimpleChanges](https://angular.io/api/core/SimpleChanges)`当前和先前属性值的对象。`ngOnInit()`在一个或多个数据绑定输入属性发生更改   之前和之后调用。|
-| `ngOnInit()` | 在 Angular 首次显示数据绑定属性并设置指令/组件的输入属性后初始化指令/组件。在第一次之后 调用一次。 ngOnChanges()|
-| `ngDoCheck()` | 检测 Angular 无法或不会自行检测的更改并对其进行操作。在每次更改检测运行期间，在 ngOnChanges()和之后立即调用 ngOnInit()。 |
-| `[ngAfterContentInit()]` | 在 Angular 将外部内容投影到组件的视图/指令所在的视图后进行响应。在第一次之后 调用一次 ngDoCheck()。|
-| `ngAfterContentChecked()` | 在 Angular 检查投射到指令/组件中的内容后响应。在`[ngAfterContentInit()](https://angular.io/api/router/RouterLinkActive#ngAfterContentInit)`随后和随后的每一次调用之后`ngDoCheck()`。|
-| `[ngAfterViewInit()]` | 在 Angular 初始化组件的视图和子视图/指令所在的视图后响应。在第一次之后 调用一次 ngAfterContentChecked()。|
-| `ngAfterViewChecked()` | 在 Angular 检查组件的视图和子视图/指令所在的视图后响应。在`[ngAfterViewInit()]`随后和随后的每一次调用之后`ngAfterContentChecked()`。|
-| `ngOnDestroy()` | 就在 Angular 破坏指令/组件之前进行清理。取消订阅 Observable 并分离事件处理程序以避免内存泄漏。在 Angular 破坏指令/组件之前 调用。|
+
+| Hook                      | Purpose and Timing                                                                                                                                                                                             |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ngOnChanges()`           | Angular（重新）设置数据绑定输入属性时的响应。该方法接收`[SimpleChanges](https://angular.io/api/core/SimpleChanges)`当前和先前属性值的对象。`ngOnInit()`在一个或多个数据绑定输入属性发生更改   之前和之后调用。 |
+| `ngOnInit()`              | 在 Angular 首次显示数据绑定属性并设置指令/组件的输入属性后初始化指令/组件。在第一次之后 调用一次。 ngOnChanges()                                                                                               |
+| `ngDoCheck()`             | 检测 Angular 无法或不会自行检测的更改并对其进行操作。在每次更改检测运行期间，在 ngOnChanges()和之后立即调用 ngOnInit()。                                                                                       |
+| `[ngAfterContentInit()]`  | 在 Angular 将外部内容投影到组件的视图/指令所在的视图后进行响应。在第一次之后 调用一次 ngDoCheck()。                                                                                                            |
+| `ngAfterContentChecked()` | 在 Angular 检查投射到指令/组件中的内容后响应。在`[ngAfterContentInit()](https://angular.io/api/router/RouterLinkActive#ngAfterContentInit)`随后和随后的每一次调用之后`ngDoCheck()`。                           |
+| `[ngAfterViewInit()]`     | 在 Angular 初始化组件的视图和子视图/指令所在的视图后响应。在第一次之后 调用一次 ngAfterContentChecked()。                                                                                                      |
+| `ngAfterViewChecked()`    | 在 Angular 检查组件的视图和子视图/指令所在的视图后响应。在`[ngAfterViewInit()]`随后和随后的每一次调用之后`ngAfterContentChecked()`。                                                                           |
+| `ngOnDestroy()`           | 就在 Angular 破坏指令/组件之前进行清理。取消订阅 Observable 并分离事件处理程序以避免内存泄漏。在 Angular 破坏指令/组件之前 调用。                                                                              |
 
 React 生命周期（16.0 之前）：
 ![React-Lifecycle1](https://upload-images.jianshu.io/upload_images/2041009-8194a8dee1922c66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
