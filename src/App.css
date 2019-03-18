@@ -5,7 +5,8 @@
 }
 
 .without-hooks,
-.with-hooks {
+.with-hooks,
+.custom-hooks {
   border: 1px solid #e2e2e2;
   height: 100vh;
   width: 100vw;

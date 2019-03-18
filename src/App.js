@@ -5,6 +5,8 @@ import CounterHooks from "./CounterHooks";
 import CounterD from "./CounterD";
 import CounterHooksD from "./CounterHooksD";
 import CounterHooksError from "./CounterHooksError";
+
+import FormCustomHooks from "./FormCustomHooks";
 import "./App.css";
 
 function App() {
@@ -19,7 +21,10 @@ function App() {
         <span>with-hooks</span>
         <CounterHooks />
         <CounterHooksD />
-        {/* <CounterHooksError /> */}
+        <CounterHooksError />
+      </div>
+      <div className="custom-hooks">
+        <FormCustomHooks />
       </div>
     </div>
   );

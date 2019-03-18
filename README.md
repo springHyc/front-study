@@ -1,3 +1,5 @@
+# 浅谈 Hooks&&生命周期
+
 ## 生命周期
 
 现在流行的前端框架，无论是 angular 还是 React，又或是 Angular2 以及以上，都由框架自身提供了生命周期（有的叫生命周期钩子）供开发者使用。
@@ -136,17 +138,17 @@ React 是渲染过程中的“上帝”，每一次渲染 Counter 都要由 Reac
 像下面的代码，肯定会出乱子的：
 
 ```js
-const Counter = () => {
-  const [count, setCount] = useState(0);
-  if (count % 2 === 0) {
-    const [foo, updateFoo] = useState("foo");
-  }
-  const [bar, updateBar] = useState("bar");
-  // ...
-};
+let showFruit = true;
+let fruit, setFruit;
+if (showFruit) {
+  [fruit, setFruit] = useState("banana");
+  showFruit = false;
+}
 ```
 
 因为条件判断，让每次渲染中 useState 的调用次序不一致了，于是 React 就错乱了。
+
+![条件渲染报错](https://upload-images.jianshu.io/upload_images/2041009-b4f0b28fd76b3b97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #### 1.2 useEffect
 
@@ -161,6 +163,11 @@ useEffect Hook 是这三种生命周期方法的组合。
 useEffect 当组件第一次完成加载时运行一次，然后每次更新组件状态时运行一次。因为按钮单击正在修改状态，即组件 useEffect 方法运行。
 
 在 Counter 组件，如果我们想要在用户点击“+”或者“-”按钮之后把计数值体现在网页标题上，这就是一个修改 DOM 的副作用操作，所以必须把 Counter 写成 class，而且添加下面的代码：
+
+> 介绍一下副作用（做了这件事情，我们还必须要再做一些事情）
+> 我们写的有状态组件，通常会产生很多的副作用（side effect），比如发起 ajax 请求获取数据，添加一些监听的注册和取消注册，手动修改 dom 等等。我们之前都把这些副作用的函数写在生命周期函数钩子里，比如 componentDidMount，componentDidUpdate 和 componentWillUnmount。而现在的 useEffect 就相当与这些声明周期函数钩子的集合体。它以一抵三。
+>
+> 同时，由于前文所说 hooks 可以反复多次使用，相互独立。所以我们合理的做法是，给每一个副作用一个单独的 useEffect 钩子。这样一来，这些副作用不再一股脑堆在生命周期钩子里，代码变得更加清晰。
 
 ```js
 componentDidMount() {
@@ -194,7 +201,7 @@ const Counter = () => {
 };
 ```
 
-seEffect 的参数是一个函数，组件每次渲染之后，都会调用这个函数参数，这样就达到了 componentDidMount 和 componentDidUpdate 一样的效果。
+setEffect 的参数是一个函数，组件每次渲染之后，都会调用这个函数参数，这样就达到了 componentDidMount 和 componentDidUpdate 一样的效果。
 
 虽然本质上，依然是 componentDidMount 和 componentDidUpdate 两个生命周期被调用，但是现在我们关心的不是 mount 或者 update 过程，而是“after render”事件，useEffect 就是告诉组件在“渲染完”之后做点什么事。
 
@@ -210,17 +217,23 @@ useEffect(() => {
 
 在上面的代码中，useEffect 的第二个参数是 [123]，其实也可以是任何一个常数，因为它永远不变，所以 useEffect 只在 mount 时调用第一个函数参数一次，达到了 componentDidMount 一样的效果。
 
-#### 1.3 useContext - 用到的很好，暂时不做介绍
+#### 1.3 useContext
 
-React Context API 大家都很少用到，有兴趣的同学可以去了解一下。
+> 用到的很少，暂时不做介绍。React Context API 大家都很少用到，有兴趣的同学可以去了解一下。
+
+提供了上下文（context）的功能
 
 ### 2. 简介
 
-上面我们介绍了 useState、useEffect 两个最基本的 Hooks，可以感受到，Hooks 将大大简化使用 React 的代码。
+上面我们介绍了 `useState`、`useEffect` 和`useContext`这三个最基本的 Hooks，可以感受到，Hooks 将大大简化使用 React 的代码。
 
 首先我们可能不再需要 class 了，虽然 React 官方表示 class 类型的组件将继续支持，但是，业界已经普遍表示会迁移到 Hooks 写法上，也就是放弃 class，只用函数形式来编写组件。
 
 Hooks 发布后， 会带来什么样的改变呢？ 毫无疑问， 未来的组件， 更多的将会是函数式组件。
+
+### 3. Custom React Hooks
+
+我们还可以自定钩子。这样我们才能把可以复用的逻辑抽离出来，变成一个个可以随意插拔的“插销”，哪个组件要用来，我就插进哪个组件里，so easy！我们来看一个有关表单的例子。
 
 ## 参考
 
@@ -232,3 +245,4 @@ Hooks 发布后， 会带来什么样的改变呢？ 毫无疑问， 未来的�
 - [React v15 到 v16.3, v16.4 新生命周期总结以及使用场景](https://blog.csdn.net/Napoleonxxx/article/details/81120854)
 - [React 生命周期图](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 - [全面了解 React 新功能: Suspense 和 Hooks](https://segmentfault.com/a/1190000017483690)
+- [custom-react-hooks](https://upmostly.com/tutorials/using-custom-react-hooks-simplify-forms/)

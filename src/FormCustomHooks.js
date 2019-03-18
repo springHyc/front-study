@@ -1,7 +1,7 @@
 import React from "react";
 import useForm from "./useForm";
 
-const Form = () => {
+const FormCustomHooks = () => {
   const { values, handleChange, handleSubmit } = useForm(login);
 
   function login() {
@@ -9,8 +9,9 @@ const Form = () => {
   }
   return (
     <div className="section is-fullheight">
-      <div className="container">
-        <div className="column is-4 is-offset-4">
+      <div className="container" style={{ width: "600px" }}>
+        <h1 style={{ fontSize: "36px" }}>使用自定义的hooks</h1>
+        <div className="column is-6 is-offset-4">
           <div className="box">
             <form onSubmit={handleSubmit}>
               <div className="field">
@@ -53,4 +54,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormCustomHooks;
