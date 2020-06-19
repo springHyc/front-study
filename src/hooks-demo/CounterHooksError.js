@@ -13,10 +13,11 @@ let fruit, setFruit;
 export default function CounterHooksError() {
   const [count, setCount] = useState(0);
 
-  if (showFruit) {
-    [fruit, setFruit] = useState("banana");
-    showFruit = false;
-  }
+  // 报错
+  //   if (showFruit) {
+  //     [fruit, setFruit] = useState("banana");
+  //     showFruit = false;
+  //   }
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
@@ -26,7 +27,7 @@ export default function CounterHooksError() {
           border: "1px solid #e2e2e2",
           padding: "10px",
           borderRadius: "10px",
-          marginLeft: "20px"
+          marginLeft: "20px",
         }}
       >
         <h1>{count}</h1>

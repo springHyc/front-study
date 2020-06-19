@@ -1,13 +1,14 @@
 {
-  "name": "hooks-demo",
-  "version": "0.1.0",
+  "name": "learn-react-grammar-demo",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "bulma": "^0.7.4",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.5"
+    "bulma": "^0.9.0",
+    "react": "^16.13.1",
+    "react-copy-to-clipboard": "^5.0.2",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
