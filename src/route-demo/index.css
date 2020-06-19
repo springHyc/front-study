@@ -1,0 +1,12 @@
+.left-side {
+  width: 200px;
+  min-width: 200px;
+  background-color: #fff;
+  border-right: 1px solid #e2e2e2;
+}
+.logo {
+  margin: 16px;
+}
+.left-side ul li {
+  padding: 16px;
+}
