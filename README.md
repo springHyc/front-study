@@ -1,6 +1,18 @@
-# 记录
+# bid-test
 
-学习 React 语法所创建的 react 工程
+各种学习实验性的代码
+
+## 目录
+
+| 项目名                   | 简介             |
+| ------------------------ | ---------------- |
+| errorBoundary            | 错误边界         |
+| printing                 | 打印机效果       |
+| react-beautiful-dnd-test | 拖拽效果         |
+| react-grid-layout-test   | ---              |
+| react-new-feature        | react 新特性     |
+| usegestureTest           | use-gesture 实验 |
+| hooks-demo               | react Hooks      |
 
 ## npm 更新
 
@@ -19,7 +31,3 @@
 更新 dependencies 到最新版本 `ncu -u`
 
 `npm install` 可以将`node_modules`先删除了再继续
-
-## Hooks
-
-参看`src/hooks-demo`目录下
